@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>NoteApp</title>
+
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link href="style.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="mainContent" class="main-content display">
+      <div class="container">
+        <p class="switch sw-lb" id="lb_1">Search</p>
+        <label class="switch">
+          <input id="switcher" type="checkbox">
+          <div class="slider round"></div>
+        </label>
+        <p class="switch sw-lb" id="lb_2">Create/Edit</p>
+
+      <div id="noteBlock" class="note-block">
+        <div class="row">
+          <div class=" col-md-12">
+
+            <div class="col-md-4 col-lg-4 form-group">
+                <p class="label-note">Add your note</p>
+                <div contenteditable='true' oninput="parseTag(noteField.innerText)"  class="form-control"  id="noteField" ></div>
+                <div class="col-md-6">
+                <button onclick="handlerSave()" id="btnSave" class="btn btn-primary">Save</button>
+              </div>
+                <div class="col-md-4 col-lg-4">
+                  <ul id="tagUL">
+                  </ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+              <p id="countNotes" class="label-note">You have no notes</p>
+              <div class="note-list">
+                <ul id="noteUL">
+                </ul>
+              </div>
+            </div>
+            <div class=" col-md-4 col-lg-4">
+              <div id="searchBlock" class='display-none'>
+              <div class="form-group">
+                <input oninput="filterByTag()" type="text" class="form-search" id="searchField" placeholder="Search by #">
+              </div>
+              <ul id="filterNote">
+              </ul>
+            </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div id="onLoadContent" class="container onload-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="onload-text">
+        <span class="label-note">Welcome to the NoteApp</span>
+      </div>
+      <div class="onload-text">
+        <span>
+all this app's data is stored in "localStorage" so if you've been here before click on "I was here", if not then another button</span>
+      </div>
+        <div>
+          <div class="col-md-6 col-xs-6 onload-text">
+            <button onclick="aboutState(event)" id="btnIWH" class="btn btn-primary leftbtn">I was her</button>
+        </div>
+        <div class="col-md-6 col-xs-6 onload-text">
+          <button onclick="aboutState(event)" id="btnFT" class="btn btn-primary rightbtn">First time</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="core.js"></script>
+  </body>
+
+</html>
